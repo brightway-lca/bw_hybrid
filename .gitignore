@@ -1,0 +1,5 @@
+# LCA
+*.db
+dev/notebooks/Databases/**
+dev/notebooks/__pycache__/**
+dev/notebooks/__pycache__/pylcaio.cpython-310.pyc
