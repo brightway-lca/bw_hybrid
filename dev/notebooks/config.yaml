@@ -20,3 +20,6 @@ e2m_pickle_filename: 'Pandas_symmNorm.gz.pickle'
 path_dir_e2m_logs: '_log'
 # packages
 pylcaio: 'github/pylcaio/src'
+# json files
+path_dict_io_countries_per_lca_region: 'bw2hybrid/data/dict_io_countries_per_lca_region.json'
+path_list_io_countries_and_regions: 'bw2hybrid/data/list_io_countries_and_regions.json'
