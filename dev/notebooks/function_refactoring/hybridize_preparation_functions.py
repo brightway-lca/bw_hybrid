@@ -144,3 +144,79 @@ def identify_rows(self):
     self.PRO_f.io_geography[self.PRO_f.io_geography == 'RoW'] = 'GLO'
     self.PRO_f.io_geography.loc[[i for i in self.PRO_f.index if type(self.PRO_f.io_geography[i]) == list]] = 'GLO'
 
+
+def calc_productions(self):
+    """ Calculates the different total productions for either countries, regions or RoWs
+
+    Returns:
+    -------
+        The updated self.total_prod_country, self.total_prod_region and self.total_prod_RoW dataframe
+
+    """
+
+    # the user needs to determine the total demand before being able to calculate productions
+    listdrop = []
+
+    absent_countries = {}
+    for i in range(0, len(list(self.countries_per_regions.values()))):
+        absent_country = [item for item in self.listcountry if
+                            item not in list(self.countries_per_regions.values())[i]]
+        absent_countries[list(self.countries_per_regions.keys())[i]] = absent_country
+
+    self.total_prod_country =  pd.DataFrame(
+        self.X_io.todense(), index=pd.MultiIndex.from_product([self.regions_of_IO, self.sectors_of_IO],
+                                                                names=['region', 'sector']), columns=['production'])
+
+    listmatrixxx = []
+    listlisteee = []
+    listdfff = []
+    for i in range(0, len(absent_countries)):
+        listmatrixxx.append('matrixxx' + str(i))
+        listlisteee.append('listeee' + str(i))
+        listdfff.append('dfff' + str(i))
+    listact = []
+    for i in range(0, self.number_of_products_IO):
+        listact.append(self.total_prod_country.index[i][1])
+    for i in range(0, len(list(absent_countries.values()))):
+        listadd = []
+        listmatrixxx[i] = self.total_prod_country.drop(list(absent_countries.values())[i], axis=0, level=0)
+        for k in range(0, self.number_of_products_IO):
+            somme = 0
+            for j in range(0, len(listmatrixxx[i]), self.number_of_products_IO):
+                somme += listmatrixxx[i].iloc[j + k, 0]
+            listadd.append(somme)
+        listlisteee[i] = listadd
+        listdfff[i] = pd.DataFrame(listlisteee[i], listact, [list(absent_countries.keys())[i]])
+        self.total_prod_region = self.total_prod_region.join(listdfff[i], how='outer')
+
+    # next step we will consider the rest-of-the-World geographies, so the user has to run 'identify_RoWs' first
+    if len(self.dictRoW) == 0:
+        print('You need to run "identify_rows" before calculating the productions')
+        return
+
+    listmatrixxxx = []
+    listlisteeee = []
+    listdffff = []
+    for k in range(0, len(list(self.dictRoW.keys()))):
+        listmatrixxxx.append('matrixxxx' + str(k))
+        listlisteeee.append('listeeee' + str(k))
+        listdffff.append('dfff' + str(k))
+        listdrop = []
+        for i in range(0, len(self.dictRoW)):
+            listadd = []
+            for j in range(0, len(self.listcountry)):
+                if self.listcountry[j] not in list(self.dictRoW.values())[i]:
+                    listadd.append(self.listcountry[j])
+            listdrop.append(listadd)
+
+    for i in range(0, len(list(self.dictRoW.keys()))):
+        listadd = []
+        listmatrixxxx[i] = self.total_prod_country.drop(listdrop[i], axis=0, level=0)
+        for k in range(0, self.number_of_products_IO):
+            somme = 0
+            for j in range(0, len(listmatrixxxx[i]), self.number_of_products_IO):
+                somme += listmatrixxxx[i].iloc[j + k, 0]
+            listadd.append(somme)
+        listlisteeee[i] = listadd
+        listdffff[i] = pd.DataFrame(listlisteeee[i], listact, [list(self.dictRoW.keys())[i]])
+        self.total_prod_RoW = self.total_prod_RoW.join(listdffff[i], how='outer')
