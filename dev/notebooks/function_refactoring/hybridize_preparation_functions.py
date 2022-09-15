@@ -220,3 +220,55 @@ def calc_productions(self):
         listlisteeee[i] = listadd
         listdffff[i] = pd.DataFrame(listlisteeee[i], listact, [list(self.dictRoW.keys())[i]])
         self.total_prod_RoW = self.total_prod_RoW.join(listdffff[i], how='outer')
+
+
+def replace_lca_data_with_io_data_electricity_prices(
+    df_in: pd.DataFrame
+) -> pd.DataFrame:
+
+    df = df_in.copy()
+
+    condition_1: pd.Series = df['price'] == 0.0977
+    condition_2: pd.Series = df['productName'] == 'electricity'
+
+    df_subset = df[condition_1, condition_2][['io_geography', 'price']]
+    df_subset_updated = df_subset.merge(
+        right = electricity_prices,
+        left_on = io_geography,
+        right_on = 'region',
+        how = 'left'
+    )
+
+    df = df.update(df_subset_updated)
+    
+    return df
+
+
+def update_prices_electricity(self):
+    """ Method specially for ecoinvent and exiobase, in which electricity prices from ecoinvent are replaced by
+        price extracted from exiobase
+
+        Returns:
+        -------
+        The updated price column of the self.PRO_f matrix
+
+        """
+
+    electricity_price = pd.read_excel(pkg_resources.resource_stream(__name__,
+                                                                    '/Data/Regionalized_electricity_prices.xlsx'),
+                                                                    index_col=0)
+
+    electricity_processes = self.PRO_f.price.loc[
+        [i for i in self.PRO_f.index if
+            (0.0977 == self.PRO_f.price[i] and 'electricity' in self.PRO_f.productName[i]) or
+            (0.107 == self.PRO_f.price[i] and 'electricity' in self.PRO_f.productName[i])]]
+
+    if electricity_processes.empty:
+        print('Empty!')
+        return
+    merged = self.PRO_f.loc[electricity_processes.index.values, ['price', 'io_geography']].merge(
+        electricity_price, left_on=['io_geography'], right_on=electricity_price.index, how='left')
+    merged.prices[merged.prices.isnull()] = merged.price
+    merged.index = electricity_processes.index.values
+    merged = merged.drop(['price', 'io_geography'], axis=1)
+    self.PRO_f.price.update(merged.prices)
