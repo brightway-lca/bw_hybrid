@@ -8,6 +8,7 @@ def identify_rest_of_world_regions(
     list_io_countries: list,
     dict_io_countries_per_lca_region: dict
 ) -> pd.DataFrame:
+    # Identify the rest of the world regions
 
     # create dataframe copy to ensure the input dataframe is not manipulated (else repeated exection will likely fail)
     df = df_in.copy()
