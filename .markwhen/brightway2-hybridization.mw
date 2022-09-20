@@ -1,0 +1,24 @@
+title: Brightway Hybridization Package
+
+group pylcaio Integration (Basic Functionality)
+2022-09-05/2022-09-08: Debugging/Investigation Setup #infrastructure
+2022-09-05/2022-09-06: Performance: np.csr_matrix #performance
+2022-09-07/2022-09-08: identify_row() #refactoring
+2022-09-14/2022-09-16: calc_productions() #refactoring
+2022-09-15/2022-09-16: extend_inventory() #refactoring
+2022-09-19/2022-09-20: Project Management #admin
+
+
+# upcoming:
+
+2022-10-05/2022-10-07: hybridize() ("conversion part") #refactoring
+2022-10-10/2022-10-12: extract_*()  #refactoring
+2022-10-13/2022-10-14: hybridize() ("conversion part") #refactoring
+
+2022-10-17/2022-10-21: Buffer ("quick and dirty prototype building") #refactoring
+
+group Events #events
+2022-09-19/2022-09-21: ISIE Socio-Economic Metabolism Conference #events
+2022-09-26/2022-09-30: Brightcon #events
+2022-10-03/2022-10-04: LEA Group Retreat #events
+2022-10-24/2022-10-28: PhD Autumn School #events
