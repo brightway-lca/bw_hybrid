@@ -1,6 +1,7 @@
 # directories
 path_dir_data: 'data'
-path_dir_databases: 'data_pylcaio_input'
+path_dir_data_raw: 'raw_data'
+path_dir_data_processed: 'processed_data'
 path_dir_pylcaio: 'data_pylcaio'
 path_dir_pymrio: 'data_pymrio'
 path_dir_e2m: 'data_e2m'
