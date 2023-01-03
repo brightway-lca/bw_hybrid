@@ -1,10 +1,11 @@
 # directories
 path_dir_data: 'data'
-path_dir_data_raw: 'raw_data'
-path_dir_data_processed: 'processed_data'
+path_dir_data_raw: 'data_raw'
+path_dir_data_processed: 'data_processed'
 path_dir_pylcaio: 'data_pylcaio'
 path_dir_pymrio: 'data_pymrio'
 path_dir_e2m: 'data_e2m'
+path_dir_processing_logs: 'logs'
 # databases
 ecoinvent: 'ecoinvent-3.5-cutoff'
 exiobase: 'exiobase_monetary_pxp/IOT_2012_pxp.zip'
@@ -16,9 +17,7 @@ pylcaio_database_loader_class_instance: 'pylcaio_database_loader_class_instance.
 # pymrio
 pymrio_class_instance: 'pymrio_class_instance.pkl'
 # ecospold2matrix ("e2m")
-e2m_project_name: 'ecoinvent_3_5_cutoff'
 e2m_pickle_filename: 'Pandas_symmNorm.gz.pickle'
-path_dir_e2m_logs: '_log'
 # packages
 pylcaio: 'github/pylcaio/src'
 # json files
