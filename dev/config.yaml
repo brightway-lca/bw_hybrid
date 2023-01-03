@@ -19,7 +19,7 @@ pymrio_class_instance: 'pymrio_class_instance.pkl'
 # ecospold2matrix ("e2m")
 e2m_pickle_filename: 'Pandas_symmNorm.gz.pickle'
 # packages
-pylcaio: 'github/pylcaio/src'
+path_dir_repo_pylcaio: 'github/pylcaio/src'
 # json files
 path_dict_io_countries_per_lca_region: 'bw2hybrid/data/dict_io_countries_per_lca_region.json'
 path_dict_io_countries_list_per_lca_region: 'bw2hybrid/data/dict_io_countries_list_per_lca_region.json'
