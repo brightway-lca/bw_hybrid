@@ -7,7 +7,7 @@ path_dir_pymrio: 'data_pymrio'
 path_dir_e2m: 'data_e2m'
 path_dir_processing_logs: 'logs'
 # databases
-ecoinvent: 'ecoinvent-3.5-cutoff'
+ecoinvent_version_name: 'ecoinvent_3.5_cutoff_ecoSpold02'
 exiobase: 'exiobase_monetary_pxp/IOT_2012_pxp.zip'
 # filenames
 # pylcaio
