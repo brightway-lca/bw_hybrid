@@ -9,7 +9,7 @@ path_dir_processing_logs: 'logs'
 # databases
 ecoinvent_version_name: 'ecoinvent_3.5_cutoff_ecoSpold02'
 ecoinvent_characterization_file: 'LCIA_implementation_3.5.xlsx'
-exiobase: 'exiobase_monetary_pxp/IOT_2012_pxp.zip'
+exiobase_3.8: 'exiobase_3.8/IOT_2011_pxp.zip'
 # filenames
 # pylcaio
 pylcaio_class_instance_before_hybrid: 'pylcaio_class_instance_before_hybrid.pkl'
