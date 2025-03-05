@@ -1,0 +1,46 @@
+# https://www.mkdocs.org/user-guide/configuration/
+site_name: Brightway Hybrid Documentation
+repo_url: https://github.com/brightway-lca/bw_hybrid
+copyright: © Paul Scherrer Institute (PSI) | Code under MIT License
+nav:
+  - Home: 'index.md'
+  - API Reference (Internal):
+    - Concordance Matrices: 'api/concordance.md'
+theme: # https://www.mkdocs.org/user-guide/choosing-your-theme/#readthedocs
+  name: readthedocs
+  highlightjs: true
+  navigation_depth: 4
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
+    - content.footnote.tooltips
+plugins:
+  - search:
+      min_search_length: 2
+      indexing: 'full'
+  - mkdocstrings: # https://mkdocstrings.github.io/python/usage/
+      handlers:
+        python:
+          options:
+            docstring_style: numpy
+            show_source: true
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css
+
+watch:
+  - bw_hybrid
