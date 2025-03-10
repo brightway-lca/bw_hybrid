@@ -30,6 +30,47 @@ def _build_concordance_matrix_attribution_XXX(
        The share of the process allocation to each sector is __not__ known (`{'A': None, 'B': None}`).
        Instead, it is inferred from the annual production volume $x$ of the sectors.
     
+    The concordance matrix $\mathbf{H}$ of this system can be represented as
+
+    $$
+    \mathbf{H} =
+    \begin{bmatrix}
+        1.0 & 0   & 0.8 & 0   \\ 
+        0   & 0   & 0.2 & 0   \\ 
+        0   & 1.0 & 0   & 0.4 \\ 
+        0   & 0   & 0   & 0.6 \\ 
+    \end{bmatrix}
+    $$
+
+
+    where, in our convention, the concordance matrix $\mathbf{H}$ is defined as
+
+    | Symbol       | Dimension     | Units                      | Description         |
+    |--------------|---------------|----------------------------|---------------------|
+    | $\mathbf{H}$ | $N \times M$  | dimensionless ($0<h<1$)    |                     |
+    | $N$          | N/A           | dimensionless              | Number of sectors   |
+    | $M$          | N/A           | dimensionless              | Number of processes |
+
+
+    Note that for process/case 4, the concordance matrix coefficients $h_{34}$ and $h_{44}$
+    are inferred from the annual production volume $x$ of the sectors $A(MEX)$ and $B(MEX)$:
+
+    $$
+    \vec{x}_{MEX} =
+    \begin{bmatrix}
+        40 \times 10^6 \text{ USD} \\
+        60 \times 10^6 \text{ USD}
+    \end{bmatrix}
+    $$
+
+    40% of the combined annual production volume of $(A(MEX), B(MEX))$ comes from sector $A(MEX)$,
+    and 60% comes from sector $B(MEX)$. Therefore 40% of the process allocation is to sector $A(MEX)$,
+    and 60% is to sector $B(MEX)$.
+
+    loc(1)='US'
+    loc(2)='US'
+    loc(3)='US'
+
     A geopgraphy matching dictionary of the form:
 
     ```
@@ -42,30 +83,6 @@ def _build_concordance_matrix_attribution_XXX(
         ],
     }
     ```
-
-    $$
-        \mathbf{H} = 
-        \begin{bmatrix}
-        0.2 & 1 & 0   \\ 
-        0.8 & 0 & 0   \\
-        0   & 0 & 0.5 \\
-        0   & 0 & 0.5 \\
-        \end{bmatrix}
-    $$
-
-    $$
-        \vec{x} = 
-        \begin{bmatrix}
-        200 \\
-        800 \\
-        300 \\
-        300
-        \end{bmatrix}
-    $$
-
-    loc(1)='US'
-    loc(2)='US'
-    loc(3)='US'
 
     Parameters
     ----------
