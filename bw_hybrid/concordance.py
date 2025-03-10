@@ -7,14 +7,14 @@ def _build_concordance_matrix_attribution_XXX(
     list_location_sector: list,
     dict_location_correspondence: list,
 ) -> str:
-    """
+    r"""
     _summary_
 
-    _extended_summary_
+    Generates a _concordance matrix_ between the process system and the sectoral system.
 
-    ![Payload/Range Diagram](https://raw.githubusercontent.com/sustainableaviation/jetfuelburn/refs/heads/main/docs/_static/reduced_order_yanto_etal.svg)
+    <img src="https://raw.githubusercontent.com/brightway-lca/bw_hybrid/refs/heads/main/docs/_media/geographic_concordance.svg" width="500">
     
-    A matching dictionary of the form:
+    A geopgraphy matching dictionary of the form:
 
     ```
     {

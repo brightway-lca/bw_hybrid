@@ -5,3 +5,4 @@ dev/notebooks/__pycache__/**
 dev/notebooks/__pycache__/pylcaio.cpython-310.pyc
 .vscode/*
 docs/_media/.DS_Store
+docs/.DS_Store
