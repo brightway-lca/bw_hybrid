@@ -33,6 +33,7 @@ markdown_extensions:
       permalink: true
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.blocks.caption
 
 extra_javascript:
   - javascripts/katex.js

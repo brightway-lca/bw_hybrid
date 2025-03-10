@@ -8,11 +8,27 @@ def _build_concordance_matrix_attribution_XXX(
     dict_location_correspondence: list,
 ) -> str:
     r"""
-    _summary_
+    Generates a _concordance matrix_ $\mathbf{H}$ between the process system and the sectoral system.
 
-    Generates a _concordance matrix_ between the process system and the sectoral system.
+    <img src="../../_media/geographic_concordance.svg" width="500">
 
-    <img src="https://raw.githubusercontent.com/brightway-lca/bw_hybrid/refs/heads/main/docs/_media/geographic_concordance.svg" width="500">
+    /// caption
+    Diagrammatic Illustration of a simplified input-output table containing two regions (`USA`, `MX`)
+    and four production processes (`1`, `2`, `3`, `4`).
+    Note that in this system, _the world_ consists only of the two regions present.
+    ///
+
+    As shown in the diagram, there are four possible cases:
+
+    1. A process corresponds to a single sector (`A`) in a single location (`USA`).
+    2. A process corresponds to a single sector (`B`) in a "dynamic" location (`RoW`=Rest of World).
+       In the example, this is process `2` in `RoW`, which produces the same output as process `1` in `USA`.
+       Because _the world_ in this example consists only of `USA` and `MX`, this process is allocated to `MX`.
+    3. A process corresponds to multiple sectors (`A`, `B`) in a single location (`USA`).
+       The share of the process allocation to each sector is known (`{'A': 0.2, 'B': 0.8}`).
+    4. A process corresponds to multiple sectors (`A`, `B`) in a single location (`MX`).
+       The share of the process allocation to each sector is __not__ known (`{'A': None, 'B': None}`).
+       Instead, it is inferred from the annual production volume $x$ of the sectors.
     
     A geopgraphy matching dictionary of the form:
 
