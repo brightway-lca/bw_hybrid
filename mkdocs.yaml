@@ -4,13 +4,14 @@ repo_url: https://github.com/brightway-lca/bw_hybrid
 copyright: © Paul Scherrer Institute (PSI) | Code under MIT License
 nav:
   - Home: 'index.md'
+  - Related: 'related.md'
   - Theory:
     - Life-Cycle Assessment: 'theory/lca.md'
     - Hybrid Life-Cycle Assessment: 'theory/hlca.md'
   - API Reference (Internal):
     - Concordance Matrices: 'api/concordance.md'
 theme: # https://www.mkdocs.org/user-guide/choosing-your-theme/#readthedocs
-  name: readthedocs
+  name: material
   highlightjs: true
   navigation_depth: 4
   features:
@@ -22,7 +23,6 @@ theme: # https://www.mkdocs.org/user-guide/choosing-your-theme/#readthedocs
     - content.footnote.tooltips
 plugins:
   - search:
-      min_search_length: 2
       indexing: 'full'
   - mkdocstrings: # https://mkdocstrings.github.io/python/usage/
       handlers:
