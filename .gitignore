@@ -7,3 +7,6 @@ dev/notebooks/__pycache__/pylcaio.cpython-310.pyc
 docs/_media/.DS_Store
 docs/.DS_Store
 .venv/*
+.venvhybrid
+.vscode
+.DS_Store
