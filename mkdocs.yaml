@@ -4,18 +4,18 @@ repo_url: https://github.com/brightway-lca/bw_hybrid
 copyright: © Paul Scherrer Institute (PSI) | Code under MIT License
 nav:
   - Home: 'index.md'
-  - Related: 'related.md'
+  - About: 'about.md'
+  - Related Projects: 'related.md'
   - Theory:
-    - Life-Cycle Assessment: 'theory/lca.md'
     - Hybrid Life-Cycle Assessment: 'theory/hlca.md'
-    - Brightway Calculations: 'theory/calculations.md'
+    - Hybrid Matrix Calculations: 'theory/calculations.md'
   - API Reference (Internal):
     - Concordance Matrices: 'api/concordance.md'
 theme: # https://www.mkdocs.org/user-guide/choosing-your-theme/#readthedocs
   name: material
   #custom_dir: docs/_overrides
-  #logo: _static/logos/jetfuelburn_logo.svg
-  #favicon: _static/logos/jetfuelburn_logo.svg
+  logo: _static/logos/brightwayhybrid_logo.svg
+  favicon: _static/logos/brightwayhybrid_logo.svg
   highlightjs: true
   navigation_depth: 4
   features:

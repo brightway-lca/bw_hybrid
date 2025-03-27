@@ -1,5 +1,7 @@
 # Related Software
 
+Other software packages have been developed to support the implementation of hybrid life-cycle assessment (HLCA) and environmentally extended input-output analysis (EEIOA). This table lists some of the most relevant packages and their development metrics.
+
 | Project | Authors | Last Commit | Contributors |            |
 | ------- | ------- | ----------- | ------------ | ---------- |
 | [`regionalize_lcidb_with_mrio`](https://github.com/ecological-systems-design/regionalize_lcidb_with_mrio) | [ETHZ ESD](https://esd.ifu.ethz.ch/) | ![GitHub last commit](https://img.shields.io/github/last-commit/ecological-systems-design/regionalize_lcidb_with_mrio?logo=GitHub&label=&style=flat) |  ![GitHub contributors](https://img.shields.io/github/contributors/ecological-systems-design/regionalize_lcidb_with_mrio?logo=GitHub&label=&style=flat) | ![GitHub Repo stars](https://img.shields.io/github/stars/ecological-systems-design/regionalize_lcidb_with_mrio?style=social)|
